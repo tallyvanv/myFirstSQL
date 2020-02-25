@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $linkedIn = $_POST['linkedIn'];
     $github = $_POST['email'];
     $email = $_POST['github'];
-    $prefLanguage = $_POST['prefLanguage'];
+    $prefLanguage = $_POST['preferred_language'];
     $avatar = $_POST['avatar'];
     $video = $_POST['video'];
     $quote = $_POST['quote'];
@@ -45,17 +45,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO table_student(first_name, last_name, username, linkedin, github, email, preferred_language, avatar, video, quote, quote_author) VALUES(:firstname, :lastname, :username, :linkedin, :github, :email, :preflanguage, :avatar, :video, :quote, :quoteauthor)";
         $query = $pdo->prepare($sql);
 
-        $query->bindparam(':firstname', $firstName);
-        $query->bindparam(':lastname', $lastName);
-        $query->bindparam(':username', $userName);
-        $query->bindparam(':linkedin', $linkedIn);
-        $query->bindparam(':github', $github);
-        $query->bindparam(':email', $email);
-        $query->bindparam(':preflanguage', $prefLanguage);
-        $query->bindparam(':avatar', $avatar);
-        $query->bindparam(':video', $video);
-        $query->bindparam(':quote', $quote);
-        $query->bindparam(':quoteauthor', $quoteAuthor);
+        $query->bindparam(':firstname', $firstName, PDO::PARAM_STR);
+        $query->bindparam(':lastname', $lastName, PDO::PARAM_STR);
+        $query->bindparam(':username', $userName, PDO::PARAM_STR);
+        $query->bindparam(':linkedin', $linkedIn, PDO::PARAM_STR);
+        $query->bindparam(':github', $github, PDO::PARAM_STR);
+        $query->bindparam(':email', $email, PDO::PARAM_STR);
+        $query->bindparam(':preflanguage', $prefLanguage, PDO::PARAM_STR);
+        $query->bindparam(':avatar', $avatar, PDO::PARAM_STR);
+        $query->bindparam(':video', $video, PDO::PARAM_STR);
+        $query->bindparam(':quote', $quote, PDO::PARAM_STR);
+        $query->bindparam(':quoteauthor', $quoteAuthor, PDO::PARAM_STR);
 
         $query->execute();
 
@@ -64,6 +64,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //display success message
         echo "<font color='green'>Data added successfully.";
-        echo "<br/><a href='index.php'>View Result</a>";
     }
 }

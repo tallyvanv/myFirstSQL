@@ -1,5 +1,5 @@
 <?php
-require "form-view.php";
+require "View/homepage.php";
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,6 +31,10 @@ require "form-view.php";
                 <?php echo $user['email'] ?>
             </td>
 
+            <td>
+                <img src="<?php echo 'images/' . $user['preferred_language'] . '.png'; ?>" alt="flag">
+
+            </td>
         </tr>
     <?php endforeach; ?>
 </table>
