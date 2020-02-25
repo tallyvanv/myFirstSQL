@@ -44,7 +44,8 @@ class homepageController
             echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
         } else {
             // if all the fields are filled (not empty)
-            $pdo = openConnection();
+            $connect = new Connection();
+            $pdo = $connect->openConnection();
             //insert data to database
             $sql = "INSERT INTO table_student(first_name, last_name, username, linkedin, github, email, preferred_language, avatar, video, quote, quote_author) VALUES(:firstname, :lastname, :username, :linkedin, :github, :email, :preflanguage, :avatar, :video, :quote, :quoteauthor)";
             $query = $pdo->prepare($sql);

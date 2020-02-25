@@ -1,6 +1,6 @@
 <?php
 $dataAll = new Selector();
-$studentTable = $dataAll->select(openConnection(), 'SELECT * FROM table_student');
+$studentTable = $dataAll->select();
 ?>
 <!doctype html>
 <html lang="en">
