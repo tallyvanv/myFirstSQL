@@ -1,5 +1,5 @@
 <?php
-
+$dataAll = select(openConnection(), 'SELECT * FROM table_student');
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="../insert.php" method="post">
+<form method="post">
     <input type="text" name = "firstName" /><br/>
     <input type="text" name = "lastName" /><br/>
     <input type="text" name = "userName" /><br/>
@@ -32,5 +32,31 @@
     <input type="text" name = "quoteAuthor" /><br/>
     <input type="submit" />
 </form>
+
+<table border="1">
+    <?php
+    foreach ($dataAll as $user): ?>
+        <tr>
+            <td>
+                <?php echo $user['first_name'] ?>
+            </td>
+
+
+            <td>
+                <?php echo $user['last_name'] ?>
+            </td>
+
+
+            <td>
+                <?php echo $user['email'] ?>
+            </td>
+
+            <td>
+                <img src="<?php echo 'images/' . $user['preferred_language'] . '.png'; ?>" alt="flag">
+
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
 </body>
 </html>
