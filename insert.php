@@ -57,7 +57,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $query->bindparam(':quote', $quote);
         $query->bindparam(':quoteauthor', $quoteAuthor);
 
-        var_dump($sql);
         $query->execute();
 
         // Alternative to above bindparam and execute
