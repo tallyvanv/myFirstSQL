@@ -1,5 +1,6 @@
 <?php
-$dataAll = select(openConnection(), 'SELECT * FROM table_student');
+$dataAll = new Selector();
+$studentTable = $dataAll->select(openConnection(), 'SELECT * FROM table_student');
 ?>
 <!doctype html>
 <html lang="en">
@@ -35,7 +36,7 @@ $dataAll = select(openConnection(), 'SELECT * FROM table_student');
 
 <table border="1">
     <?php
-    foreach ($dataAll as $user): ?>
+    foreach ($studentTable as $user): ?>
         <tr>
             <td>
                 <?php echo $user['first_name'] ?>
