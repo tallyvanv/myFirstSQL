@@ -10,10 +10,7 @@
         $pdo = new PDO('mysql:host=' . $dbhost.';dbname=' . $db, $dbuser, $dbpass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         // Setting Error Mode as Exception
-        echo 'het lukte';
     } catch(PDOException $e) {
         echo $e->getMessage();
     }
-
-    var_dump($pdo);
  // Why we do this here

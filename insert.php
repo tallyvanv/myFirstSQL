@@ -45,8 +45,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO table_student(first_name, last_name, username, linkedin, github, email, preferred_language, avatar, video, quote, quote_author) VALUES(:firstname, :lastname, :username, :linkedin, :github, :email, :preflanguage, :avatar, :video, :quote, :quoteauthor)";
         $query = $pdo->prepare($sql);
 
-        $query->bindparam(':lastname', $firstName);
-        $query->bindparam(':firstname', $lastName);
+        $query->bindparam(':firstname', $firstName);
+        $query->bindparam(':lastname', $lastName);
         $query->bindparam(':username', $userName);
         $query->bindparam(':linkedin', $linkedIn);
         $query->bindparam(':github', $github);
@@ -57,6 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $query->bindparam(':quote', $quote);
         $query->bindparam(':quoteauthor', $quoteAuthor);
 
+        var_dump($sql);
         $query->execute();
 
         // Alternative to above bindparam and execute

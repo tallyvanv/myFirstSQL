@@ -1,5 +1,5 @@
 <?php
-
+require "form-view.php";
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,19 +11,29 @@
     <title>Document</title>
 </head>
 <body>
-<form action="insert.php" method="post">
-    First name: <input type="text" name = "firstName" /><br/>
-    Last name: <input type="text" name = "lastName" /><br/>
-    Username: <input type="text" name = "userName" /><br/>
-    LinkedIn: <input type="text" name = "linkedIn" /><br/>
-    Preferred language: <input type="text" name = "prefLanguage" /><br/>
-    Github: <input type="text" name = "github" /><br/>
-    Email: <input type="text" name = "email" /><br/>
-    Avatar: <input type="text" name = "avatar" /><br/>
-    Video: <input type="text" name = "video" /><br/>
-    Quote: <input type="text" name = "quote" /><br/>
-    Quote author: <input type="text" name = "quoteAuthor" /><br/>
-    <input type="submit" />
-</form>
+
+<table border="1">
+    <?php
+    $userSelect = 'SELECT first_name,last_name,email,preferred_language  FROM table_student';
+    foreach ($pdo->query($userSelect) as $user): ?>
+        <tr>
+            <td>
+                <?php echo $user['first_name'] ?>
+            </td>
+
+
+            <td>
+                <?php echo $user['last_name'] ?>
+            </td>
+
+
+            <td>
+                <?php echo $user['email'] ?>
+            </td>
+
+        </tr>
+    <?php endforeach; ?>
+</table>
 </body>
 </html>
+
