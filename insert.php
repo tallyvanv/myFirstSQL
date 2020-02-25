@@ -1,20 +1,34 @@
 <?php
-include "connection.php";
+declare(strict_types=1);
+ini_set('display_errors', "1");
+ini_set('display_startup_errors', "1");
+error_reporting(E_ALL & ~E_NOTICE);
+
+require "connection.php";
+require "index.php";
 //including the database connection file
 
-if(isset($_POST['Submit'])) {
-    $name = $_POST['name'];
-    $age = $_POST['age'];
-    $email = $_POST['email'];
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $userName = $_POST['userName'];
+    $linkedIn = $_POST['linkedIn'];
+    $github = $_POST['email'];
+    $email = $_POST['github'];
+    $prefLanguage = $_POST['prefLanguage'];
+    $avatar = $_POST['avatar'];
+    $video = $_POST['video'];
+    $quote = $_POST['quote'];
+    $quoteAuthor = $_POST['quoteAuthor'];
 
     // checking empty fields
-    if(empty($name) || empty($age) || empty($email)) {
+    if(empty($firstName) || empty($lastName) || empty($email)) {
 
-        if(empty($name)) {
+        if(empty($firstName)) {
             echo "<font color='red'>Name field is empty.</font><br/>";
         }
 
-        if(empty($age)) {
+        if(empty($lastName)) {
             echo "<font color='red'>Age field is empty.</font><br/>";
         }
 
@@ -28,12 +42,21 @@ if(isset($_POST['Submit'])) {
         // if all the fields are filled (not empty)
 
         //insert data to database
-        $sql = "INSERT INTO table_student(name, age, email) VALUES(:name, :age, :email)";
+        $sql = "INSERT INTO table_student(first_name, last_name, username, linkedin, github, email, preferred_language, avatar, video, quote, quote_author) VALUES(:firstname, :lastname, :username, :linkedin, :github, :email, :preflanguage, :avatar, :video, :quote, :quoteauthor)";
         $query = $pdo->prepare($sql);
 
-        $query->bindparam(':name', $name);
-        $query->bindparam(':age', $age);
+        $query->bindparam(':lastname', $firstName);
+        $query->bindparam(':firstname', $lastName);
+        $query->bindparam(':username', $userName);
+        $query->bindparam(':linkedin', $linkedIn);
+        $query->bindparam(':github', $github);
         $query->bindparam(':email', $email);
+        $query->bindparam(':preflanguage', $prefLanguage);
+        $query->bindparam(':avatar', $avatar);
+        $query->bindparam(':video', $video);
+        $query->bindparam(':quote', $quote);
+        $query->bindparam(':quoteauthor', $quoteAuthor);
+
         $query->execute();
 
         // Alternative to above bindparam and execute

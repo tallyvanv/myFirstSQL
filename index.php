@@ -1,7 +1,5 @@
 <?php
-include "connection.php";
 
-var_dump(openConnection());
 ?>
 <!doctype html>
 <html lang="en">
