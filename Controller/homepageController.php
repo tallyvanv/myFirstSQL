@@ -50,17 +50,17 @@ class homepageController
             $sql = "INSERT INTO table_student(first_name, last_name, username, linkedin, github, email, preferred_language, avatar, video, quote, quote_author) VALUES(:firstname, :lastname, :username, :linkedin, :github, :email, :preflanguage, :avatar, :video, :quote, :quoteauthor)";
             $query = $pdo->prepare($sql);
 
-            $query->bindparam(':firstname', $firstName, PDO::PARAM_STR);
-            $query->bindparam(':lastname', $lastName, PDO::PARAM_STR);
-            $query->bindparam(':username', $userName, PDO::PARAM_STR);
-            $query->bindparam(':linkedin', $linkedIn, PDO::PARAM_STR);
-            $query->bindparam(':github', $github, PDO::PARAM_STR);
-            $query->bindparam(':email', $email, PDO::PARAM_STR);
-            $query->bindparam(':preflanguage', $prefLanguage, PDO::PARAM_STR);
-            $query->bindparam(':avatar', $avatar, PDO::PARAM_STR);
-            $query->bindparam(':video', $video, PDO::PARAM_STR);
-            $query->bindparam(':quote', $quote, PDO::PARAM_STR);
-            $query->bindparam(':quoteauthor', $quoteAuthor, PDO::PARAM_STR);
+            $query->bindValue(':firstname', $firstName, PDO::PARAM_STR);
+            $query->bindValue(':lastname', $lastName, PDO::PARAM_STR);
+            $query->bindValue(':username', $userName, PDO::PARAM_STR);
+            $query->bindValue(':linkedin', $linkedIn, PDO::PARAM_STR);
+            $query->bindValue(':github', $github, PDO::PARAM_STR);
+            $query->bindValue(':email', $email, PDO::PARAM_STR);
+            $query->bindValue(':preflanguage', $prefLanguage, PDO::PARAM_STR);
+            $query->bindValue(':avatar', $avatar, PDO::PARAM_STR);
+            $query->bindValue(':video', $video, PDO::PARAM_STR);
+            $query->bindValue(':quote', $quote, PDO::PARAM_STR);
+            $query->bindValue(':quoteauthor', $quoteAuthor, PDO::PARAM_STR);
 
             $query->execute();
 

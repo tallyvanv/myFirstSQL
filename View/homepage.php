@@ -39,7 +39,7 @@ $studentTable = $dataAll->select();
     foreach ($studentTable as $user): ?>
         <tr>
             <td>
-                <?php echo $user['first_name'] ?>
+                <a href="http://myfirstsql.local/profile.php?user=<?php echo $user['id']?>"><?php echo $user['first_name'] ?></a>
             </td>
 
 
