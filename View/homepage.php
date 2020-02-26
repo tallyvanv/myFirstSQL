@@ -1,7 +1,3 @@
-<?php
-$dataAll = new Selector();
-$studentTable = $dataAll->select();
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,11 +9,11 @@ $studentTable = $dataAll->select();
 </head>
 <body>
 <form method="post">
-    <input type="text" name = "firstName" /><br/>
-    <input type="text" name = "lastName" /><br/>
-    <input type="text" name = "userName" /><br/>
-    <input type="text" name = "linkedIn" /><br/>
-    <select name="preferred_language">
+    First name: <input type="text" name = "firstName" /><br/>
+    Last name: <input type="text" name = "lastName" /><br/>
+    Username: <input type="text" name = "userName" /><br/>
+    LinkedIn: <input type="text" name = "linkedIn" /><br/>
+    Preferred language: <select name="preferred_language">
         <option value="de">de</option>
         <option value="en">en</option>
         <option value="fr">fr</option>
@@ -25,12 +21,12 @@ $studentTable = $dataAll->select();
         <option value="ru">ru</option>
         <option value="zh">zh</option>
     </select>
-    <input type="text" name = "github" /><br/>
-    <input type="text" name = "email" /><br/>
-    <input type="text" name = "avatar" /><br/>
-    <input type="text" name = "video" /><br/>
-    <input type="text" name = "quote" /><br/>
-    <input type="text" name = "quoteAuthor" /><br/>
+    Github: <input type="text" name = "github" /><br/>
+    Email: <input type="text" name = "email" /><br/>
+    Avatar: <input type="text" name = "avatar" /><br/>
+    Video <input type="text" name = "video" /><br/>
+    Quote: <input type="text" name = "quote" /><br/>
+    Author: <input type="text" name = "quoteAuthor" /><br/>
     <input type="submit" />
 </form>
 
@@ -39,7 +35,7 @@ $studentTable = $dataAll->select();
     foreach ($studentTable as $user): ?>
         <tr>
             <td>
-                <a href="http://myfirstsql.local/profile.php?user=<?php echo $user['id']?>"><?php echo $user['first_name'] ?></a>
+                <a target="_blank" href="http://myfirstsql.local/profile.php?user=<?php echo $user['id']?>"><?php echo $user['first_name'] ?></a>
             </td>
 
 

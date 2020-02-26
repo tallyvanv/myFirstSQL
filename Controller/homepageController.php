@@ -8,6 +8,8 @@ class homepageController
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             $this->insert();
         }
+        $dataAll = new Selector();
+        $studentTable = $dataAll->select();
         require "View/homepage.php";
     }
 
